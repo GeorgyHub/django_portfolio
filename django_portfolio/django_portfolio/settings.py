@@ -45,7 +45,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'service' / 'templates'
+            BASE_DIR / 'service/' / 'templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'django_portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -109,7 +109,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "service/static",
+    BASE_DIR / "service/static/service",
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
@@ -118,5 +118,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = os.path.join(BASE_DIR, '/media/')
-MEDIA_ROOT = '/media/'
+MEDIA_URL = os.path.join(BASE_DIR, '/service/media/')
+MEDIA_ROOT = '/service/media/'

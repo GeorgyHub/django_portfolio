@@ -7,12 +7,12 @@ class Posts(models.Model):
         verbose_name_plural = "Репост"
         ordering = ["-created_at"]
 
-    name = models.CharField(max_length=50, null=True)
-    image = models.ImageField(upload_to='media/image/%Y/%M/%D')
-    text = models.TextField(max_length=300, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
+    name = models.CharField(max_length=50, null=True, verbose_name = "Имя")
+    image = models.ImageField(upload_to='media/image/%Y/%M/%D', verbose_name = "Изображение")
+    text = models.TextField(max_length=300, null=True, verbose_name = "Описание")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name = "Создан")
+    update_at = models.DateTimeField(auto_now=True, verbose_name = "Обновлено")
+    is_published = models.BooleanField(default=True, verbose_name = "Опубликован")
 
 
 class Music(models.Model):
@@ -20,11 +20,11 @@ class Music(models.Model):
         verbose_name = "Музыка"
         verbose_name_plural = "Музыка"
 
-    name = models.CharField(max_length=50, null=True)
-    track = models.FileField(upload_to='media/music/%Y/%M/%D')
-    name_band = models.ForeignKey('Bands', on_delete=models.PROTECT, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    name = models.CharField(max_length=50, null=True, verbose_name = "Имя")
+    track = models.FileField(upload_to='media/music/%Y/%M/%D', verbose_name = "Файл музыки")
+    name_band = models.ForeignKey('Bands', on_delete=models.PROTECT, null=True, verbose_name = "Название группы")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name = "Создан")
+    update_at = models.DateTimeField(auto_now=True, verbose_name = "Обновлено")
 
 
 class Video(models.Model):
@@ -32,10 +32,10 @@ class Video(models.Model):
         verbose_name = "Видео"
         verbose_name_plural = "Видео"
 
-    name = models.CharField(max_length=50, null=True)
-    video = models.FileField(upload_to='media/video/%Y/%M/%D')
-    created_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    name = models.CharField(max_length=50, null=True, verbose_name = "Имя")
+    video = models.FileField(upload_to='media/video/%Y/%M/%D', verbose_name = "Файл видео")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name = "Создан")
+    update_at = models.DateTimeField(auto_now=True, verbose_name = "Обновлено")
 
 
     
@@ -44,8 +44,8 @@ class Bands(models.Model):
         verbose_name = "Группы"
         verbose_name_plural = "Группа"
 
-    name = models.CharField(max_length=50, null=True)
-    image = models.ImageField(upload_to='media/image/%Y/%M/%D')
+    name = models.CharField(max_length=50, null=True, verbose_name = "Название группы")
+    image = models.ImageField(upload_to='media/image/%Y/%M/%D', verbose_name = "Изображение")
 
 
 class Abulm(models.Model):
@@ -53,6 +53,6 @@ class Abulm(models.Model):
         verbose_name = "Альбомы"
         verbose_name_plural = "Альбом"
 
-    name = models.CharField(max_length=50, null=True)
-    image = models.ImageField(upload_to='media/image/%Y/%M/%D')
-    name_band = models.ForeignKey('Bands', on_delete=models.PROTECT, null=True)
+    name = models.CharField(max_length=50, null=True, verbose_name = "Название альбома")
+    image = models.ImageField(upload_to='media/image/%Y/%M/%D', verbose_name = "Изображение")
+    name_band = models.ForeignKey('Bands', on_delete=models.PROTECT, null=True, verbose_name = "Название группы")

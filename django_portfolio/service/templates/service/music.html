@@ -3,28 +3,50 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="shorcet icon" href="">
     </head>
     <body>
         <!--header-->
         <header>
-            <!--logo-->
-            <div class="block_logo"></div>
-            <!--search-->
-            <div class="block_search">
-                <input type="text" placeholder="Поиск">
-                <button>Найти</button>
-            </div>
-            <!--account-->
-            <div class="block_account">
-                <a href="" class="link_sung_up">Зарегистрироваться</a>
-                <a href="" class="link_sung_in">Войти</a>
+            <div class="header">
+                <!--logo-->
+                <div class="block_logo"></div>
+                <!--search-->
+                <div class="block_search">
+                    <input type="text" placeholder="Поиск">
+                    <button>Найти</button>
+                </div>
+                <!--account-->
+                <div class="block_account">
+                    <a href="" class="link_sung_up">Зарегистрироваться</a>
+                    <a href="" class="link_sung_in">Войти</a>
+                </div>
             </div>
         </header>
-        {% block sidebar %} 
-            {% include 'service/sidebar.html' %}
-        {% endblock %}
-        {% block connect %}
-            <h1>{{ title }}</h1>
-        {% endblock %}
+        <section>
+            {% block sidebar %} 
+                {% include 'service/sidebar.html' %}
+            {% endblock %}
+            <div class="connect">
+            {% block connect %}
+                <h1>{{ title }}</h1>
+                <hr>
+                <div class="block_abulms">
+                    <h3>Альбомы</h3>
+                </div>
+                <div class="block_music_new">
+                    <h3>Новая музыка</h3>
+                </div>
+            {% endblock %}
+            </div>
+        </section>
+        <!--footer-->
+        <footer>
+            <div class="footer"></div>
+        </footer>
+    </body>
+</html>

@@ -1,5 +1,82 @@
+/*html*/
 body, html{
     padding: 0;
     margin: 0;
     background-color: darkgray;
+    font-family: "Arial", sens-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    text-align: center;
+}
+
+/*header*/
+.header{
+    width: auto;
+    height: 50px;
+    padding: 10px 2%;
+    margin: 0;
+    background-color: dimgrey;
+}
+.block_logo,
+.block_search,
+.block_account{
+    display: inline-block;
+    width: 30%;
+}
+
+/*header_links*/
+.link_sung_up,
+.link_sung_in{
+    font-size: 22px;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+}
+.link_sung_up:hover,
+.link_sung_in:hover{
+    color: blue;
+}
+.link_sung_up:active,
+.link_sung_in:active{
+    color: grey;
+}
+
+/*sidebar*/
+.sidebar{
+    display: inline-block;
+    float: left;
+    width: 15%;
+    padding: 10px  2%;
+    margin: 10px 1%;
+    background-color: white;
+}
+.links_sidebar{
+    list-style-type: none;
+}
+.link_sidebar{
+    font-size: 16px;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+}
+.link_sidebar:hover{
+    color: blue;
+}
+.link_sidebar:active{
+    color: grey;
+}
+
+/*connect*/
+.connect{
+    display: inline-block;
+    float: right;
+    width: 70%;
+    padding: 10px  2%;
+    margin: 10px 1%;
+    background-color: white;
 }
