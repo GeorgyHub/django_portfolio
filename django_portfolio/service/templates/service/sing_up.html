@@ -1,0 +1,25 @@
+{% extends 'service/index.html' %}
+{% load static %}
+
+{% block connect %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <div class="block_form_sing">
+        <!--form-->
+        <form action="">
+            <label>Логин</label>
+            <input type="text" name="Firstname" placeholder="Введите логин"><br>
+            <label>Логин</label>
+            <input type="text" name="Lastname" placeholder="Введите логин"><br>
+            <label>Логин</label>
+            <input type="text" name="Firstname" placeholder="Введите логин"><br>
+            <label>Логин</label>
+            <input type="text" name="login" placeholder="Введите логин"><br>
+            <label>Пароль</label>
+            <input type="password" name="password" placeholder="Введите пароль"><br>
+            <label>Пароль</label>
+            <input type="password" name="password" placeholder="Введите пароль"><br>
+            <button>Войти</button>
+        </form>
+    </div>
+{% endblock %}

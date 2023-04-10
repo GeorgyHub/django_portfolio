@@ -14,6 +14,9 @@ h6{
     text-align: center;
 }
 
+/*form*/
+
+
 /*header*/
 .header{
     width: auto;
@@ -79,4 +82,16 @@ h6{
     padding: 10px  2%;
     margin: 10px 1%;
     background-color: white;
+}
+
+/*music*/
+.block_abulms,
+.block_music_new,
+.block_music_bands{
+    overflow-x: auto;
+}
+
+.blocks_abulm,
+.blocks_band{
+    display: inline-block;
 }

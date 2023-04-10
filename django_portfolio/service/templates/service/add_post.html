@@ -1,0 +1,12 @@
+{% extends 'service/index.html' %}
+{% load static %}
+
+{% block connect %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <form action="{% url 'add_post' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit' class="form_btn">Добавить</button>
+    </form>
+{% endblock %}

@@ -1,52 +1,41 @@
-<!DOCTYPE type>
+{% extends 'service/index.html' %}
 {% load static %}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ title }}</title>
-        <link rel="stylesheet" href="{% static "css/style.css" %}">
-        <link rel="shorcet icon" href="">
-    </head>
-    <body>
-        <!--header-->
-        <header>
-            <div class="header">
-                <!--logo-->
-                <div class="block_logo"></div>
-                <!--search-->
-                <div class="block_search">
-                    <input type="text" placeholder="Поиск">
-                    <button>Найти</button>
-                </div>
-                <!--account-->
-                <div class="block_account">
-                    <a href="" class="link_sung_up">Зарегистрироваться</a>
-                    <a href="" class="link_sung_in">Войти</a>
-                </div>
+
+{% block connect %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <div class="block_abulms">
+        <h3>Альбомы</h3>
+        {% for a in abulm %}
+            <div class="blocks_abulm">
+                {% if a.image %}
+                    <img src="{{ a.image.url }}" alt="" class="image_abulm" width="200">
+                    {% else %}
+                    <h6>Фото не найдено</h6>
+                {% endif %}
+                <br><a href="" class="block_abulm_link">{{ a.name }}</a>
             </div>
-        </header>
-        <section>
-            {% block sidebar %} 
-                {% include 'service/sidebar.html' %}
-            {% endblock %}
-            <div class="connect">
-            {% block connect %}
-                <h1>{{ title }}</h1>
-                <hr>
-                <div class="block_abulms">
-                    <h3>Альбомы</h3>
+        {% endfor %}
+    </div>
+    <div class="block_music_new">
+        <h3>Новая музыка</h3>
+        {% for m in music %}
+            <div class="blocks_music">
+                <div class="block_music_img">
+                    <img src="" alt="">
                 </div>
-                <div class="block_music_new">
-                    <h3>Новая музыка</h3>
-                </div>
-            {% endblock %}
+                {{m.name}}
+                <audio src="{{ m.track.url }}"></audio> 
             </div>
-        </section>
-        <!--footer-->
-        <footer>
-            <div class="footer"></div>
-        </footer>
-    </body>
-</html>
+        {% endfor %}
+    </div>
+    <div class="block_music_bands">
+        <h3>Исполнители</h3>
+        {% for band in bands %}
+            <div class="blocks_band">
+                <img src="{{ band.image.url }}" alt="" class="img_band" width="200"><br>
+                <a href="" class="blocks_band_link">{{ band.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
