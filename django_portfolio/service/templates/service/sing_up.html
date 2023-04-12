@@ -6,20 +6,23 @@
     <hr>
     <div class="block_form_sing">
         <!--form-->
-        <form action="">
-            <label>Логин</label>
-            <input type="text" name="Firstname" placeholder="Введите логин"><br>
-            <label>Логин</label>
-            <input type="text" name="Lastname" placeholder="Введите логин"><br>
-            <label>Логин</label>
-            <input type="text" name="Firstname" placeholder="Введите логин"><br>
-            <label>Логин</label>
-            <input type="text" name="login" placeholder="Введите логин"><br>
-            <label>Пароль</label>
-            <input type="password" name="password" placeholder="Введите пароль"><br>
-            <label>Пароль</label>
-            <input type="password" name="password" placeholder="Введите пароль"><br>
-            <button>Войти</button>
+        <form action="" method="post" style="width: 800px">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+            {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="alert_danger">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
         </form>
     </div>
 {% endblock %}

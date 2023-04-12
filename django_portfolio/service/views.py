@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Posts, Bands, Video, Music, Abulm
 from .forms import PostsForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -14,7 +17,17 @@ def index(request):
     return render(request, 'service/index.html', {'title': 'Новости', 'posts': posts})
 
 def sing_up(request):
-    return render(request, 'service/sing_up.html', {'title': 'Зарегистрироваться'})
+    if request.method == 'POST':
+        form = UserCreationForm()
+        if form.is_valid():
+            form.save()
+            messages.sucess(request, 'Регистрация прошла успешно')
+            return redirect('sing_in')
+        else:
+            messages.error(request, 'Ошибка регистрации')
+    else:
+        form = UserCreationForm()
+    return render(request, 'service/sing_up.html', {'title': 'Зарегистрироваться', 'form': form})
 
 def sing_in(request):
     return render(request, 'service/sing_in.html', {'title': 'Войти'})
@@ -43,13 +56,16 @@ def video(request):
     abulm = Abulm.objects.all()
     return render(request, 'service/video.html', {'title': 'Видео', 'video': video})
 
-def abulms(request):
+def abulms(request, abulm_id, music_id, band_id):
     posts = Posts.objects.all()
     bands = Bands.objects.all()
     video = Video.objects.all()
-    music = Music.objects.all()
+    music = Music.objects.all(abulm_id=abulm_id)
     abulm = Abulm.objects.all()
-    return render(request, 'service/abulms.html', {'title': 'Музыкальные альбомы', 'bands': bands, 'music': music, 'abulm': abulm})
+    return render(request, 'service/music/abulms.html', {'title': 'Музыкальные альбомы', 
+                                                    'bands': bands, 
+                                                    'music': music, 
+                                                    'abulm': abulm})
     
 def add_post(request):
     if request.method == 'POST':
@@ -60,3 +76,4 @@ def add_post(request):
     else:
         form = PostsForm
     return render(request, 'service/add_post.html', {'title': 'Добавить запись', 'form': form})
+

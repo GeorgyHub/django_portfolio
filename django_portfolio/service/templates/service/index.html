@@ -50,9 +50,8 @@
                     {% for post in posts %}
                         <div class="block_post">
                             <h3>{{ post.name }}</h3>
-                            <hr>
                             <div class="block_post_image">
-                                {{ post.image.url }}
+                                <img src="{{ post.image.url }}" alt="" width="250"> 
                             </div>
                             <div class="block_post_text">
                                 {{ post.text }}
