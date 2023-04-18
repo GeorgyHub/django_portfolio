@@ -13,7 +13,7 @@
                     {% else %}
                     <h6>Фото не найдено</h6>
                 {% endif %}
-                <br><a href="{{ a.name.url }}" class="block_abulm_link">{{ a.name }}</a>
+                <br><a href="" class="block_abulm_link">{{ a.name }}</a>
             </div>
         {% endfor %}
     </div>
@@ -23,7 +23,7 @@
             <div class="blocks_music">
                 {{m.name}}
                 <audio class="audio">
-                    <source src="{{ m.track.url }}">
+                    <source src="{{ m.track.url }}" type="audio/mp3" />
                 </audio> 
             </div>
         {% endfor %}

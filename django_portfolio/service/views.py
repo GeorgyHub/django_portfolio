@@ -57,12 +57,10 @@ def video(request):
     return render(request, 'service/video.html', {'title': 'Видео', 'video': video})
 
 def abulms(request, abulm_id, music_id, band_id):
-    posts = Posts.objects.all()
     bands = Bands.objects.all()
-    video = Video.objects.all()
-    music = Music.objects.all(abulm_id=abulm_id)
-    abulm = Abulm.objects.all()
-    return render(request, 'service/music/abulms.html', {'title': 'Музыкальные альбомы', 
+    music = Music.objects.all(music_id=abulm_id)
+    abulm = Abulm.objects.all(abulm_id=abulm_id)
+    return render(request, 'service/abulms.html', {'title': 'Альбом', 
                                                     'bands': bands, 
                                                     'music': music, 
                                                     'abulm': abulm})

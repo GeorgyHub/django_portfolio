@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="{% static "css/style.css" %}">
-        <link rel="shorcet icon" href="">
+        <link rel="shorcet icon" href="{% static "img/logo.png" %}">
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -53,11 +53,13 @@
                             <div class="block_post_image">
                                 <img src="{{ post.image.url }}" alt="" width="250"> 
                             </div>
-                            <div class="block_post_text">
-                                {{ post.text }}
-                            </div>
-                            <div class="block_post_time">
-                                {{ post.created_at }}
+                            <div class="block_info">
+                                <div class="block_post_text">
+                                    {{ post.text }}
+                                </div>
+                                <div class="block_post_time">
+                                    {{ post.created_at }}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}

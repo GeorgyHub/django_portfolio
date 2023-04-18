@@ -10,6 +10,6 @@ urlpatterns = [
     path('my_page/', my_page, name='my_page'),
     path('video/', video, name='video'),
     path('music/', music, name='music'),
-    path('abulms/', abulms, name='abumls'),
+    path('abulm/', abulms, name='abuml'),
 ]
 
