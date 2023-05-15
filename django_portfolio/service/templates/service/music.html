@@ -22,7 +22,7 @@
         {% for m in music %}
             <div class="blocks_music">
                 {{m.name}}
-                <audio id="music" class="audio" controls>
+                <audio id="music" class="audio">
                     <source src="{{ m.track.url }}" type="audio/mp3" />
                 </audio> 
                 <canvas id="int_music"></canvas>
@@ -38,5 +38,5 @@
             </div>
         {% endfor %}
     </div>
-    <script src="{% static "js/fns_music.js"%}"></script>
+    <script src="{% static "js/fns_music.js" %}"></script>
 {% endblock %}

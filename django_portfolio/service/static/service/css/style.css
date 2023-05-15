@@ -101,18 +101,21 @@ h6{
     overflow-x: auto;
 }
 
-.link_back{
+.link_back,
+.post_link_add{
     font-size: 18px;
     font-family: 'Arial', sans-serif;
     color: black;
     text-decoration: none;
 }
 
-.link_back:hover{
+.link_back,
+.post_link_add:hover{
     color: red;
 }
 
-.link_back:active{
+.link_back,
+.post_link_add:active{
     color: grey;
 }
 

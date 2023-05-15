@@ -56,14 +56,11 @@ def video(request):
     abulm = Abulm.objects.all()
     return render(request, 'service/video.html', {'title': 'Видео', 'video': video})
 
-def abulms(request, abulm_id, music_id, band_id):
+def abulms(request):
     bands = Bands.objects.all()
-    music = Music.objects.filter(music_id=abulm_id)
-    abulm = Abulm.objects.filter(abulm_id=abulm_id)
-    return render(request, 'service/abulms.html', {'title': 'Альбом', 
-                                                    'bands': bands, 
-                                                    'music': music, 
-                                                    'abulm': abulm})
+    #music = Music.objects.filter(music_id=abulm_id)
+    #abulm = Abulm.objects.filter(abulm_id=abulm_id)
+    return render(request, 'service/abulms.html', {'title': 'Альбом'})
     
 def band(request):
     music = Music.objects.all()
