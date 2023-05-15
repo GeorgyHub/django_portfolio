@@ -3,4 +3,10 @@
 
 {% block connect %}
     <h1>{{ title }}</h1>
+    <hr>
+    <!--back-->
+    <a class="link_back" href="{% url 'music' %}"><< Назад</a>
+    <img src="{{ band.image.url }}" alt="">
+    <h2>Музыка</h2>
+    <h2>Альбомы</h2>
 {% endblock %}

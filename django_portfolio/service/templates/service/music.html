@@ -13,7 +13,7 @@
                     {% else %}
                     <h6>Фото не найдено</h6>
                 {% endif %}
-                <br><a href="" class="block_abulm_link">{{ a.name }}</a>
+                <br><a href="{% url 'abulm' %}" class="block_abulm_link">{{ a.name }}</a>
             </div>
         {% endfor %}
     </div>
@@ -22,14 +22,10 @@
         {% for m in music %}
             <div class="blocks_music">
                 {{m.name}}
-                <audio id="music" class="audio">
+                <audio id="music" class="audio" controls>
                     <source src="{{ m.track.url }}" type="audio/mp3" />
                 </audio> 
-                <div class="interface_music">
-                    <button>Play</button>
-                    <button>Pause</button>
-                    <button>Stop</button>
-                </div>
+                <canvas id="int_music"></canvas>
             </div>
         {% endfor %}
     </div>
@@ -38,7 +34,7 @@
         {% for band in bands %}
             <div class="blocks_band">
                 <img src="{{ band.image.url }}" alt="" class="img_band" width="200"><br>
-                <a href="" class="blocks_band_link">{{ band.name }}</a>
+                <a href="{% url 'band' %}" class="blocks_band_link">{{ band.name }}</a>
             </div>
         {% endfor %}
     </div>

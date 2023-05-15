@@ -58,13 +58,20 @@ def video(request):
 
 def abulms(request, abulm_id, music_id, band_id):
     bands = Bands.objects.all()
-    music = Music.objects.all(music_id=abulm_id)
-    abulm = Abulm.objects.all(abulm_id=abulm_id)
+    music = Music.objects.filter(music_id=abulm_id)
+    abulm = Abulm.objects.filter(abulm_id=abulm_id)
     return render(request, 'service/abulms.html', {'title': 'Альбом', 
                                                     'bands': bands, 
                                                     'music': music, 
                                                     'abulm': abulm})
     
+def band(request):
+    music = Music.objects.all()
+    abulm = Abulm.objects.all()
+
+    context = {}
+    return render(request, 'service/band.html', context=context)
+
 def add_post(request):
     if request.method == 'POST':
         form = PostsForm(request.POST)

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, sing_in, sing_up, my_page, video, music, abulms, add_post
+from .views import index, sing_in, sing_up, my_page, video, music, abulms, add_post, band
 
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     path('my_page/', my_page, name='my_page'),
     path('video/', video, name='video'),
     path('music/', music, name='music'),
-    path('abulm/', abulms, name='abuml'),
+    path('abulm/', abulms, name='abulm'),
+    path('band/', band, name='band'),
 ]
 
